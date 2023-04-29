@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section>
+
+  <div class="row">
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-warning text-white mb-4">
+        <div class="card-body">Applied Loan</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/appliedloan">View Details</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-success text-white mb-4">
+        <div class="card-body">Approved Loans</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/approved">View Details</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-danger text-white mb-4">
+        <div class="card-body">Unapproved Loans</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/unapprovedloan">View Details</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+    <div class="container-fluid px-4">
+      <h1 class="mt-4">Tables</h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Tables</li>
+      </ol>
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table me-1"></i>
+          Applied Loans
+        </div>
+        <div class="card-body">
+          <table id="datatablesSimple">
+            <thead>
+            <tr>
+              <th>Loan Type</th>
+              <th>Total Amount</th>
+              <th>EMI</th>
+              <th>Time</th>
+              <th>Applied Date</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>Loan Type</th>
+              <th>Total Amount</th>
+              <th>EMI</th>
+              <th>Time</th>
+              <th>Applied Date</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr th:each="loan : ${loanobj}">
+              <td><label type="text" th:text="${loan.getLoanType()}" /></td>
+              <td><label type="text" th:text="${loan.getLonaAmount()}" /></td>
+              <td><label type="text" th:text="${loan.getEmi()}" /></td>
+              <td><label type="text" th:text="${loan.getTime()}" /></td>
+              <td><label type="text" th:text="${loan.getApplyDate()}" /></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+</body>
+</html>

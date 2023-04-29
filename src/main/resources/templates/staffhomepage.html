@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="staffbase::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section>
+
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Tables</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Tables</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Applied Loans
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                        <tr>
+                            <th>Applied By</th>
+                            <th>Loan Type</th>
+                            <th>Total Amount</th>
+                            <th>EMI</th>
+                            <th>Time</th>
+                            <th>Applied Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Applied By</th>
+                            <th>Loan Type</th>
+                            <th>Total Amount</th>
+                            <th>EMI</th>
+                            <th>Time</th>
+                            <th>Applied Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr th:each="loan : ${loanobj}">
+                            <td><label type="text" th:text="${loan.getUserModel().getfName()+' '+loan.getUserModel().getlName()}" /></td>
+                            <td><label type="text" th:text="${loan.getLoanType()}" /></td>
+                            <td><label type="text" th:text="${loan.getLonaAmount()}" /></td>
+                            <td><label type="text" th:text="${loan.getEmi()}" /></td>
+                            <td><label type="text" th:text="${loan.getTime()}" /></td>
+                            <td><label type="text" th:text="${loan.getApplyDate()}" /></td>
+
+                            <td>
+                                <a class="btn btn-outline-success" th:href="@{'/staff/approve/'+${loan.getLoanId()}}">Approve</a>
+                                <a class="btn btn-outline-danger" th:href="@{'/staff/unapprove/'+${loan.getLoanId()}}">Unapprove</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+</body>
+</html>
