@@ -25,15 +25,6 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-//        UserDetails admin = User.withUsername("suren")
-//                .password(encoder.encode("suren"))
-//                .roles("ADMIN")
-//                .build();
-//        UserDetails user = User.withUsername("John")
-//                .password(encoder.encode("Pwd2"))
-//                .roles("USER","ADMIN","HR")
-//                .build();
-//        return new InMemoryUserDetailsManager(admin, user);
         return new UserInfoUserDetailService();
     }
 
@@ -48,14 +39,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        return http
-                .csrf().disable()
-                .authorizeHttpRequests().requestMatchers("/login","register/reg","/register","/css/**","/static/**", "/resources/**","/.*.css").permitAll()
+               .csrf().disable()
+               .authorizeHttpRequests().requestMatchers("/login","register/reg","/register","/css/**","/static/**", "/resources/**","/.*.css").permitAll()
                .and()
                .formLogin().loginPage("/login").successHandler(authenticationSuccessHandler)
                .and()
                .authorizeHttpRequests().anyRequest().authenticated()
                .and()
-                .build();
+               .build();
 
     }
 

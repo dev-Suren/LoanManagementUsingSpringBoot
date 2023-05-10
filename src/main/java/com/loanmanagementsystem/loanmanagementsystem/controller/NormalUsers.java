@@ -15,7 +15,4 @@ public class NormalUsers {
     public String dashboard(@AuthenticationPrincipal UserInfoUserDetails userDetails){
         return "normalusers";
     }
-
-
-
 }

@@ -26,14 +26,10 @@ public class MainControllers {
         return "redirect:/login";
     }
 
-
-
     @GetMapping("/register")
     public String registarPage(){
         return "register";
     }
-
-
 
     @GetMapping("/login")
     public String loginPage(){

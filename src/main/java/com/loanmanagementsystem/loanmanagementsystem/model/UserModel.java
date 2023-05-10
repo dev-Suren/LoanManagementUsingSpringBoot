@@ -2,9 +2,7 @@ package com.loanmanagementsystem.loanmanagementsystem.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.loanmanagementsystem.loanmanagementsystem.Enum.UserType;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
