@@ -2,7 +2,6 @@ package com.loanmanagementsystem.loanmanagementsystem.controller;
 
 import com.loanmanagementsystem.loanmanagementsystem.Enum.LoanStatus;
 import com.loanmanagementsystem.loanmanagementsystem.model.Loan;
-import com.loanmanagementsystem.loanmanagementsystem.model.UserModel;
 import com.loanmanagementsystem.loanmanagementsystem.service.LoanService;
 import com.loanmanagementsystem.loanmanagementsystem.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
